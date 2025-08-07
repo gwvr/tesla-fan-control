@@ -1,7 +1,7 @@
 [project]
 name = "teslafancontrol"
 version = "0.1.0"
-description = "Python script and systemd unit to control pwm fan mounted on Nvidia Tesla card"
+description = "Temperature based fan speed control for PWM fan mounted on Nvidia Tesla compute card"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
