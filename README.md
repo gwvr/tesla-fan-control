@@ -18,31 +18,14 @@ apt install fancontrol nvidia-smi python3-numpy
 ## Install Python script
 
 ```sh
-cp main.py /root/tesla_fan_control.py
+sudo cp tesla_fan_control.py /usr/local/bin/tesla_fan_control.py
+sudo chmod +x /usr/local/bin/tesla_fan_control.py
 ```
 
 ## Configure SystemD unit
 
-Content of `/etc/systemd/system/tesla-fan-control.service`:
-
-```systemd
-[Unit]
-Description=Fan control service
-After=fancontrol.service
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/python /root/tesla_fan_control.py
-Restart=always
-RestartSec=10
-StandardOutput=journal
-StandardError=journal
-
-[Install]
-WantedBy=multi-user.target
-```
-
 ```sh
+sudo cp tesla-fan-control.service /etc/systemd/system/tesla-fan-control.service
 systemctl daemon-reload
 systemctl enable tesla-fan-control
 systemctl start tesla-fan-control

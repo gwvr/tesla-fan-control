@@ -1,0 +1,14 @@
+[Unit]
+Description=Fan control service
+After=fancontrol.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /usr/local/bin/tesla_fan_control.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
