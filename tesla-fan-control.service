@@ -1,6 +1,6 @@
 [Unit]
-Description=Fan control service
-After=fancontrol.service
+Description=Nvidia Tesla fan control service
+After=lm-sensors.service
 
 [Service]
 Type=simple
